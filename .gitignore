@@ -1,0 +1,10 @@
+**/__pycache__/
+.idea/
+*test*
+*.aux
+*.bbl
+*.blg
+paper/*.log
+*.synctex
+*.gz
+paper/*.pdf
