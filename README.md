@@ -1,7 +1,6 @@
 # Corridor-LO-MPC
 
-> **课题成果**：西安交通大学自动化工学学士毕业论文《基于CSC-LOMPC的多移动机器人运动规划》官方开源实现。  
-> **作者**：王浩宇 (Haoyu Wang)，西安交通大学自动化系。
+> 面向多移动机器人（AGV）编队导航与无碰撞避障的系统级运动规划与控制开源框架（本科毕业设计课题《基于CSC-LOMPC的多移动机器人运动规划》代码实现）。
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.13%2B-green.svg)](pyproject.toml)
@@ -11,7 +10,7 @@
 
 ## 📖 项目简介
 
-`Corridor-LO-MPC` 是一个面向多移动机器人（AGV）刚体编队协同导航与无碰撞避障的系统级规划控制框架。本课题针对复杂受限及狭窄通道环境下多 AGV 协同搬运重型货物的痛点，结合了**凸安全走廊 (Convex Safe Corridor, CSC)**、**改进 $A^*$ 全局路径搜索**、**Minimum Snap 高阶连续轨迹平滑优化**与**字典序优化模型预测控制 (Lexicographic Optimization MPC, LO-MPC)**，实现了端到端的运动规划与编队高精度控制闭环。
+`Corridor-LO-MPC` 是一个面向多移动机器人（AGV）刚体编队协同导航与无碰撞避障的系统级规划控制框架。针对复杂受限及狭窄通道环境下多 AGV 协同搬运重型货物的痛点，项目结合了**凸安全走廊 (Convex Safe Corridor, CSC)**、**改进 $A^*$ 全局路径搜索**、**Minimum Snap 高阶连续轨迹平滑优化**与**字典序优化模型预测控制 (Lexicographic Optimization MPC, LO-MPC)**，实现了端到端的运动规划与编队高精度控制闭环。
 
 针对传统加权求和 MPC 人工权重整定繁琐、易导致高优先级目标被淹没的缺陷，本项目构建了“刚度保持 ($P_1$) $>$ 质心导航 ($P_2$) $>$ 控制平滑 ($P_3$)”的绝对优先级分层优化架构，保证编队在复杂狭窄走廊中既能安全避障，又能严格保持刚性队形。
 
@@ -65,7 +64,7 @@
 
 ```text
 Corridor-LO-MPC/
-├── README.md                 # 项目详细说明文档与论文导读
+├── README.md                 # 项目详细说明文档
 ├── pyproject.toml            # Python 项目配置与依赖管理 (PEP 621)
 ├── uv.lock                   # 锁定的确定性依赖版本
 ├── main.py                   # 主仿真运行入口脚本
@@ -156,24 +155,6 @@ uv run python simulation/Simulation1.py
 | `destination` | `(x, y)` | 编队质心导航的目标位姿 |
 | `N` | `10 ~ 20` | LO-MPC 预测时域长度（平衡前瞻性与计算实时性） |
 | `dt` | `0.05 s` | 离散控制步长（对应 20Hz / 50ms 闭环更新频率） |
-
----
-
-## 📚 课题引用
-
-如果您在学术研究或工程实践中参考了本项目，请引用本毕业设计成果：
-
-```bibtex
-@thesis{wang2026csclompc,
-  author    = {王浩宇},
-  title     = {基于CSC-LOMPC的多移动机器人运动规划},
-  school    = {西安交通大学},
-  address   = {西安},
-  year      = {2026},
-  month     = {6},
-  type      = {工学学士学位论文}
-}
-```
 
 ---
 
